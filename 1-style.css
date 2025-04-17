@@ -1,0 +1,170 @@
+/* 基础重置 */
+.1-search-container, 
+.1-card, 
+.1-error-box {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 搜索容器 */
+.1-search-container {
+    transition: all 0.3s ease;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.1-search-container.1-center {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 搜索表单 */
+.1-search-form {
+    position: relative;
+}
+
+.1-input-wrapper {
+    position: relative;
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.1-search-input {
+    width: 100%;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+}
+
+.1-search-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #26a69a;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+/* 卡片布局 */
+.1-results-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    padding: 2rem;
+}
+
+.1-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.1-card-media {
+    height: 200px;
+    overflow: hidden;
+}
+
+.1-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.1-card:hover .1-card-img {
+    transform: scale(1.05);
+}
+
+.1-card-body {
+    padding: 1.5rem;
+}
+
+.1-card-title {
+    color: #263238;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.1-card-desc {
+    color: #616161;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.1-card-meta {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.1-tag {
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.1-category {
+    background: #e0f2f1;
+    color: #00796b;
+}
+
+.1-group-num {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: #616161;
+}
+
+/* 错误提示 */
+.1-error-box {
+    background: #ffebee;
+    color: #c62828;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.1-error-icon {
+    font-size: 1.5rem;
+}
+
+/* 空状态 */
+.1-empty-state {
+    text-align: center;
+    padding: 4rem 1rem;
+    color: #9e9e9e;
+}
+
+.1-empty-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #bdbdbd;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .1-search-container.1-center {
+        position: static;
+        transform: none;
+        padding-top: 30vh;
+    }
+    
+    .1-results-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+}
