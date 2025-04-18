@@ -16,46 +16,117 @@ if (isset($_GET['delete'])) {
     }
 }
 
-// 获取所有表白墙
+// 获取所有群组
 $groups = $pdo->query("SELECT * FROM c_groups ORDER BY created_at DESC")->fetchAll();
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <?php include 'includes/header.php'; ?>
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <header class="c-main-header">
+        <div class="c-header-container">
+            <h1 class="c-site-title">
+                <i class="material-icons">groups</i>
+                校园墙管理后台
+            </h1>
+            <a href="index.php" class="c-admin-portal">
+                <i class="material-icons">admin_panel_settings</i>
+                <span>主页</span>
+            </a>
+        </div>
+    </header>
     <title>后台管理</title>
     <style>
-        /* 新增管理页样式 */
-        .c-admin-table {
-            border-collapse: collapse;
-            width: 100%;
+        @media (max-width: 768px) {
+            .c-header-container {
+                padding: 0.8rem 1rem;
+                border-radius: 6px;
+            }
+    
+            .c-site-title {
+                font-size: 1.4rem;
+                gap: 0.5rem;
+            }
+    
+            .c-site-title i {
+                font-size: 1.8rem;
+            }
+    
+            .c-admin-portal {
+                padding: 0.6rem 1rem;
+            }
+    
+            .c-admin-portal span {
+                display: none;
+            }
+        }
+        /* 网站标题样式 */
+        .c-site-title {
+            color: white;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .c-site-title i {
+            font-size: 2.2rem;
+            color: #C8E6C9;
+        }
+
+        /* 后台入口按钮 */
+        .c-admin-portal {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255,255,255,0.9);
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .c-admin-portal:hover {
             background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        .c-admin-table th, .c-admin-table td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
+
+        .c-admin-portal i {
+            color: #2E7D32;
+            font-size: 1.8rem;
         }
-        .c-admin-table th {
-            background: #f8f9fa;
-            color: #666;
+
+        .c-admin-portal span {
+            color: #1B5E20;
             font-weight: 500;
+            font-size: 1.1rem;
         }
-        .c-qr-preview {
-            width: 60px;
-            height: 60px;
-            object-fit: cover;
-            border-radius: 4px;
+        .c-main-header {
+            background: linear-gradient(135deg, #4CAF50 0%, #43A047 100%);
+            border-radius: 8px;
+            margin: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .c-header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
     </style>
 </head>
 <body>
-    <?php include 'includes/navbar.php'; ?>
-
     <div class="c-main-container">
         <div class="c-admin-header">
             <h2>表白墙管理</h2>
@@ -111,7 +182,5 @@ $groups = $pdo->query("SELECT * FROM c_groups ORDER BY created_at DESC")->fetchA
             </tbody>
         </table>
     </div>
-
-    <?php include 'includes/footer.php'; ?>
 </body>
 </html>

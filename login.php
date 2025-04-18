@@ -10,19 +10,13 @@ if (isset($_SESSION['admin_logged_in'])) {
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <?php 
-    $page_title = "管理员登录";
     require_once 'includes/header.php'; 
     ?>
-    <style>
-        .login-container {
-            max-width: 400px;
-            margin: 5rem auto;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-    </style>
+    <title>管理员登录</title>
 </head>
 <body>
     <div class="container">
@@ -37,13 +31,11 @@ if (isset($_SESSION['admin_logged_in'])) {
                 <div class="input-field">
                     <i class="material-icons prefix">account_circle</i>
                     <input type="text" id="username" name="username" required>
-                    <label for="username">用户名</label>
                 </div>
 
                 <div class="input-field">
                     <i class="material-icons prefix">lock</i>
                     <input type="password" id="password" name="password" required>
-                    <label for="password">密码</label>
                 </div>
 
                 <div class="center">
@@ -55,7 +47,5 @@ if (isset($_SESSION['admin_logged_in'])) {
             </form>
         </div>
     </div>
-
-    <?php require_once 'includes/footer.php'; ?>
 </body>
 </html>

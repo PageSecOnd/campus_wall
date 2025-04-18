@@ -6,7 +6,7 @@ checkAdmin();
 $group = [
     'title' => '',
     'description' => '',
-    'category' => '社团',
+    'category' => '学校',
     'qr_code' => '',
     'group_number' => ''
 ];
@@ -83,8 +83,112 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html>
 <head>
-    <?php include 'includes/header.php'; ?>
+    <link rel="stylesheet" href="add.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title><?= $isEdit ? '编辑表白墙' : '新增表白墙' ?></title>
+    <header class="c-main-header">
+        <div class="c-header-container">
+            <h1 class="c-site-title">
+                <i class="material-icons">groups</i>
+                添加校园墙
+            </h1>
+            <a href="index.php" class="c-admin-portal">
+                <i class="material-icons">admin_panel_settings</i>
+                <span>主页</span>
+            </a>
+            <a href="admin.php" class="c-admin-portal">
+                <i class="material-icons">admin_panel_settings</i>
+                <span>后台</span>
+            </a>
+        </div>
+    </header>
+        <style>
+        @media (max-width: 768px) {
+            .c-header-container {
+                padding: 0.8rem 1rem;
+                border-radius: 6px;
+            }
+    
+            .c-site-title {
+                font-size: 1.4rem;
+                gap: 0.5rem;
+            }
+    
+            .c-site-title i {
+                font-size: 1.8rem;
+            }
+    
+            .c-admin-portal {
+                padding: 0.6rem 1rem;
+            }
+    
+            .c-admin-portal span {
+                display: none;
+            }
+        }
+        /* 网站标题样式 */
+        .c-site-title {
+            color: white;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .c-site-title i {
+            font-size: 2.2rem;
+            color: #C8E6C9;
+        }
+
+        /* 后台入口按钮 */
+        .c-admin-portal {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255,255,255,0.9);
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .c-admin-portal:hover {
+            background: white;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .c-admin-portal i {
+            color: #2E7D32;
+            font-size: 1.8rem;
+        }
+
+        .c-admin-portal span {
+            color: #1B5E20;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        .c-main-header {
+            background: linear-gradient(135deg, #4CAF50 0%, #43A047 100%);
+            border-radius: 8px;
+            margin: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .c-header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
 
@@ -107,8 +211,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="c-form-group">
                     <label>分类 *</label>
                     <select name="category" required>
+                        <option value="学校" <?= $group['category'] == '学校' ? 'selected' : '' ?>>学校</option>
                         <option value="社团" <?= $group['category'] == '社团' ? 'selected' : '' ?>>社团</option>
-                        <option value="学院" <?= $group['category'] == '学院' ? 'selected' : '' ?>>学院</option>
                         <option value="班级" <?= $group['category'] == '班级' ? 'selected' : '' ?>>班级</option>
                         <option value="其他" <?= $group['category'] == '其他' ? 'selected' : '' ?>>其他</option>
                     </select>
@@ -151,7 +255,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
         </div>
     </div>
-
-    <?php include 'includes/footer.php'; ?>
 </body>
 </html>

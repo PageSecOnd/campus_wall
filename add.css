@@ -1,0 +1,364 @@
+/* 基础样式 */
+:root {
+  --primary-color: #6200ee;
+  --primary-dark: #3700b3;
+  --primary-light: #bb86fc;
+  --secondary-color: #03dac6;
+  --background: #f5f5f5;
+  --surface: #ffffff;
+  --error: #b00020;
+  --on-primary: #ffffff;
+  --on-secondary: #000000;
+  --on-background: #000000;
+  --on-surface: #000000;
+  --on-error: #ffffff;
+}
+
+body {
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--background);
+  color: var(--on-background);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* 主容器 */
+.c-main-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* 表单容器 */
+.c-form-container {
+  background-color: var(--surface);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.c-form-container h2 {
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+/* 表单组 */
+.c-form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.c-form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.875rem;
+  transition: all 0.3s;
+}
+
+.c-form-group input[type="text"],
+.c-form-group input[type="number"],
+.c-form-group input[type="email"],
+.c-form-group input[type="password"],
+.c-form-group select,
+.c-form-group textarea {
+  width: 100%;
+  padding: 0.75rem 0;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+  background-color: transparent;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.c-form-group input[type="text"]:focus,
+.c-form-group input[type="number"]:focus,
+.c-form-group input[type="email"]:focus,
+.c-form-group input[type="password"]:focus,
+.c-form-group select:focus,
+.c-form-group textarea:focus {
+  outline: none;
+  border-bottom: 2px solid var(--primary-color);
+  box-shadow: none;
+}
+
+.c-form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  padding: 0.75rem;
+}
+
+/* 文件上传 */
+.c-file-upload {
+  margin-top: 1rem;
+}
+
+.c-file-upload input[type="file"] {
+  width: 100%;
+  padding: 0.5rem 0;
+}
+
+.c-current-qr {
+  max-width: 200px;
+  max-height: 200px;
+  display: block;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 按钮样式 */
+.c-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.c-primary-button {
+  background-color: var(--primary-color);
+  color: var(--on-primary);
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.0892857143em;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.c-primary-button:hover {
+  background-color: var(--primary-dark);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.c-cancel-button {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.0892857143em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.c-cancel-button:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .c-main-container {
+    padding: 0 1rem;
+  }
+  
+  .c-form-container {
+    padding: 1.5rem;
+  }
+  
+  .c-form-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .c-primary-button,
+  .c-cancel-button {
+    width: 100%;
+  }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.c-form-container {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* 浮动标签效果 */
+.c-form-group input:focus + label,
+.c-form-group input:not(:placeholder-shown) + label,
+.c-form-group textarea:focus + label,
+.c-form-group textarea:not(:placeholder-shown) + label {
+  transform: translateY(-1.5rem) scale(0.75);
+  color: var(--primary-color);
+}
+
+/* 选择框样式 */
+.c-form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23626262'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 24px;
+  padding-right: 32px !important;
+}
+
+/* 错误状态 */
+.c-form-group.error input,
+.c-form-group.error textarea,
+.c-form-group.error select {
+  border-color: var(--error);
+}
+
+.c-form-group.error label {
+  color: var(--error);
+}
+
+.c-error-message {
+  color: var(--error);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+/* 下拉选择框容器 */
+.c-select-container {
+  position: relative;
+  margin: 0.5rem 0;
+  width: 100%;
+}
+
+/* 基础下拉框样式 */
+.c-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  padding: 1rem;
+  padding-right: 3rem;
+  border: none;
+  border-bottom: 1px solid var(--divider-color);
+  background-color: transparent;
+  font-size: 1rem;
+  color: var(--text-primary);
+  border-radius: 4px 4px 0 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  box-shadow: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23757575'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.5rem;
+}
+
+/* 聚焦状态 */
+.c-select:focus {
+  outline: none;
+  border-bottom: 2px solid var(--primary-color);
+  background-color: rgba(0,0,0,0.04);
+}
+
+/* 标签样式 */
+.c-select-label {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: var(--text-secondary);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+/* 浮动标签效果 */
+.c-select:focus + .c-select-label,
+.c-select:not(:placeholder-shown) + .c-select-label {
+  top: -0.5rem;
+  left: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--primary-color);
+  background-color: var(--surface);
+  padding: 0 0.5rem;
+}
+
+/* 填充式下拉框变体 */
+.c-select-filled {
+  background-color: rgba(0,0,0,0.05);
+  border: none;
+  border-radius: 4px;
+  padding-left: 1rem;
+}
+
+.c-select-filled:focus {
+  background-color: rgba(0,0,0,0.08);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+/* 轮廓式下拉框变体 */
+.c-select-outlined {
+  border: 1px solid var(--divider-color);
+  border-radius: 4px;
+  padding-left: 1rem;
+}
+
+.c-select-outlined:focus {
+  border: 2px solid var(--primary-color);
+  padding-left: calc(1rem - 1px); /* 补偿边框增厚 */
+}
+
+/* 禁用状态 */
+.c-select:disabled {
+  color: rgba(0,0,0,0.38);
+  border-bottom: 1px dashed var(--divider-color);
+  cursor: not-allowed;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23BDBDBD'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+}
+
+/* 错误状态 */
+.c-select-error {
+  border-bottom: 2px solid var(--error);
+}
+
+.c-select-error:focus {
+  border-bottom: 2px solid var(--error);
+}
+
+.c-select-error + .c-select-label {
+  color: var(--error);
+}
+
+/* 下拉框帮助文本 */
+.c-select-helper {
+  font-size: 0.75rem;
+  padding: 0.25rem 1rem 0;
+  color: var(--text-secondary);
+}
+
+.c-select-helper-error {
+  color: var(--error);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .c-select {
+    padding: 0.875rem;
+    padding-right: 2.5rem;
+    background-size: 1.25rem;
+    background-position: right 0.75rem center;
+  }
+  
+  .c-select-label {
+    top: 0.875rem;
+    left: 0.875rem;
+  }
+  
+  .c-select:focus + .c-select-label,
+  .c-select:not(:placeholder-shown) + .c-select-label {
+    top: -0.5rem;
+    left: 0.5rem;
+  }
+}

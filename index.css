@@ -1,0 +1,310 @@
+:root {
+    --primary-color: #388E3C; /* Green 700 */
+    --primary-light: #C8E6C9; /* Green 100 */
+    --primary-dark: #2E7D32; /* Green 800 */
+    --secondary-color: #FFC107; /* Amber 500 */
+    --text-primary: #212121; /* Grey 900 */
+    --text-secondary: #757575; /* Grey 600 */
+    --divider-color: #BDBDBD; /* Grey 400 */
+    --background: #FAFAFA; /* Grey 50 */
+    --surface: #FFFFFF;
+    --error-color: #D32F2F; /* Red 700 */
+}
+
+/* 基础重置和排版 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', 'Noto Sans SC', sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--background);
+    padding-bottom: 2rem;
+}
+
+/* 卡片阴影动画 */
+@keyframes cardEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 主容器 */
+.c-main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* 搜索区域 */
+.c-search-section {
+    margin: 2rem 0 3rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.c-search-section.c-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    margin: 0;
+}
+
+.c-search-form {
+    max-width: 100%; /* 改为100%使其可以更宽 */
+    margin: 0 auto;
+}
+
+.c-input-group {
+    display: flex;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1), 
+                0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 150%; /* 添加宽度100% */
+    max-width: 1100px; /* 增加最大宽度 */
+}
+
+.c-input-group:focus-within {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 
+                0 3px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.c-search-input {
+    flex: 1;
+    padding: 1rem 2rem; /* 增加水平内边距 */
+    border: none;
+    font-size: 1.1rem;
+    outline: none;
+    background-color: var(--surface);
+    color: var(--text-primary);
+    max-width: 1100px; /* 增加最大宽度 */
+}
+
+.c-search-input::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.8;
+}
+
+.c-search-button {
+    padding: 0 2rem; /* 增加按钮宽度 */
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.c-search-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.c-search-button i {
+    font-size: 1.5rem;
+}
+
+/* 结果网格 */
+.c-results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* 卡片样式 */
+.c-card {
+    background-color: var(--surface);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 
+                0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    animation: cardEntrance 0.5s ease-out both;
+}
+
+.c-card:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1), 
+                0 10px 10px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+}
+
+.c-card-media {
+    position: relative;
+    padding-top: 100%; /* 正方形比例 */
+    overflow: hidden;
+    background-color: #f5f5f5;
+}
+
+.c-card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.c-card:hover .c-card-image {
+    transform: scale(1.03);
+}
+
+.c-card-body {
+    padding: 1.5rem;
+}
+
+.c-card-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.c-card-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.c-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.c-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 16px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.c-category {
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+}
+
+.c-group-id {
+    display: flex;
+    align-items: center;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.c-id-icon {
+    font-size: 1rem;
+    margin-right: 0.25rem;
+    color: var(--secondary-color);
+}
+
+/* 空状态 */
+.c-empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-secondary);
+}
+
+.c-empty-icon {
+    font-size: 3rem;
+    color: var(--divider-color);
+    margin-bottom: 1rem;
+}
+
+.c-empty-text {
+    font-size: 1.1rem;
+}
+
+.c-empty-text strong {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* 警告提示 */
+.c-alert {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1.5rem 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.c-alert-error {
+    background-color: #FFEBEE;
+    color: var(--error-color);
+}
+
+.c-alert-icon {
+    margin-right: 0.75rem;
+}
+
+.c-alert-text {
+    font-size: 0.95rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .c-results-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .c-search-input {
+        padding: 0.85rem 1.5rem;
+    }
+    
+    .c-search-button {
+        padding: 0 1.5rem;
+    }
+    
+    .c-card-body {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .c-input-group {
+        border-radius: 24px;
+    }
+    
+    .c-search-input {
+        padding: 0.75rem 1.25rem;
+    }
+    
+    .c-search-button {
+        padding: 0 1.25rem;
+    }
+    
+    .c-empty-state {
+        padding: 3rem 1rem;
+    }
+    
+    .c-empty-icon {
+        font-size: 2.5rem;
+    }
+}

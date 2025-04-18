@@ -50,7 +50,7 @@ $pageTitle = $searchTerm ? "搜索：{$searchTerm}" : "校园墙查询";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($pageTitle) ?></title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="index.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
@@ -75,7 +75,7 @@ $pageTitle = $searchTerm ? "搜索：{$searchTerm}" : "校园墙查询";
                          class="c-search-input"
                          name="q"
                          value="<?= htmlspecialchars($searchTerm) ?>"
-                         placeholder="输入群名称或描述..."
+                         placeholder="输入墙名称或学校名称..."
                          required
                          aria-label="校园墙搜索">
                     <button type="submit" class="c-search-button">

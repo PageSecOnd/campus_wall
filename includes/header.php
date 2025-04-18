@@ -4,19 +4,18 @@ $is_admin_page = strpos($_SERVER['REQUEST_URI'], 'admin.php') !== false;
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= isset($page_title) ? $page_title : '校园二维码墙' ?></title>
     
-    <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
     <!-- Materialize CSS -->
     <link rel="stylesheet" href="/assets/materialize.min.css">
     
     <!-- 自定义样式 -->
     <style>
-        <?php include 'style.css'; ?>
+        <?php include 'header.css'; ?>
         
         <?php if (!$is_admin_page): ?>
         .nav-wrapper {

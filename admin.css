@@ -1,0 +1,255 @@
+/* 基础样式 */
+:root {
+  --primary-color: #4CAF50;
+  --primary-dark: #388E3C;
+  --primary-light: #C8E6C9;
+  --accent-color: #FFC107;
+  --text-primary: #212121;
+  --text-secondary: #757575;
+  --divider-color: #BDBDBD;
+  --background: #FAFAFA;
+  --surface: #FFFFFF;
+  --error: #D32F2F;
+  --success: #388E3C;
+}
+
+body {
+  font-family: 'Roboto', 'Noto Sans SC', sans-serif;
+  background-color: var(--background);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+/* 主容器 */
+.c-main-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* 头部样式 */
+.c-main-header {
+  background: var(--primary-color);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.c-header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.c-site-title {
+  color: white;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.c-site-title i {
+  font-size: 2rem;
+}
+
+/* 按钮样式 */
+.c-admin-portal, .c-add-button, .c-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.c-admin-portal {
+  background: white;
+  color: var(--primary-dark);
+}
+
+.c-admin-portal:hover {
+  background: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.16), 0 4px 6px rgba(0,0,0,0.23);
+}
+
+.c-add-button {
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 0.875rem;
+  padding: 0.75rem 1rem;
+}
+
+.c-add-button:hover {
+  background-color: var(--primary-dark);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.16), 0 4px 6px rgba(0,0,0,0.23);
+}
+
+/* 管理头部 */
+.c-admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.c-admin-header h2 {
+  color: var(--text-primary);
+  font-weight: 400;
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+/* 表格样式 */
+.c-admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.c-admin-table th {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 500;
+  padding: 1rem;
+  text-align: left;
+}
+
+.c-admin-table td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+  color: var(--text-secondary);
+}
+
+.c-admin-table tr:last-child td {
+  border-bottom: none;
+}
+
+.c-admin-table tr:hover {
+  background-color: rgba(0,0,0,0.04);
+}
+
+/* 标签样式 */
+.c-tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+/* 操作按钮 */
+.c-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin: 0 0.25rem;
+  color: var(--text-secondary);
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+.c-icon-button:hover {
+  background-color: rgba(0,0,0,0.04);
+}
+
+.c-icon-button i {
+  font-size: 1.25rem;
+}
+
+.c-delete-button:hover {
+  color: var(--error);
+}
+
+/* 二维码预览 */
+.c-qr-preview {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.c-qr-preview:hover {
+  transform: scale(1.5);
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.16);
+}
+
+/* 提示框 */
+.c-alert {
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+.c-alert-success {
+  background-color: #E8F5E9;
+  color: var(--success);
+  border-left: 4px solid var(--success);
+}
+
+.c-alert i {
+  margin-right: 0.5rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .c-header-container {
+    padding: 0.75rem;
+  }
+  
+  .c-site-title {
+    font-size: 1.25rem;
+  }
+  
+  .c-site-title i {
+    font-size: 1.5rem;
+  }
+  
+  .c-admin-portal span {
+    display: none;
+  }
+  
+  .c-admin-table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  .c-admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .c-admin-header h2 {
+    font-size: 1.5rem;
+  }
+}
